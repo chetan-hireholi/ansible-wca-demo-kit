@@ -1,0 +1,21 @@
+---
+- name: Configure Database servers
+  hosts: databases
+  become: true
+
+  tasks:
+    - name: Install postgresql-server
+      ansible.builtin.package:
+        name: postgresql-server
+        state: present
+
+    - name: Run postgresql setup command
+      ansible.builtin.command: postgresql-setup initdb
+      args:
+        creates: /var/lib/pgsql/data/postgresql.conf
+
+    - name: Start and enable postgresql service
+      ansible.builtin.service:
+        name: postgresql
+        state: started
+        enabled: true

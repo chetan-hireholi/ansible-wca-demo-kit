@@ -1,0 +1,17 @@
+---
+- name: Configure Database servers
+  hosts: databases
+  become: true
+
+  tasks:
+    # TASK 1
+    # - name: Install postgresql-server
+
+    # TASK 2
+    # Ansible Lightspeed used an easy-to-understand natural language prompt and suggested the correct, more complex PostgreSQL CLI command to initiate the database.
+    # Ansible Lightspeed used best practices and kept the task idempotent by including creates: /var/lib/pgsql/data/postgresql.conf in the suggestion.
+    # - name: Run postgresql setup command
+
+    # TASK 3
+    # Ansible Lightspeed used natural language prompt and added state: started and enabled: true module arguments based on Start and enable... in the Ansible task description.
+    # - name: Start and enable postgresql service

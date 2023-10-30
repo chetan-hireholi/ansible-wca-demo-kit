@@ -1,0 +1,30 @@
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  # vars:
+  #   vm_config:
+  #     resource_group: rg-lightspeed
+  #     image:
+  #       offer: RHEL
+  #       publisher: RedHat
+  #       sku: 9-lvm
+  #       version: latest
+  #     network_interfaces:
+  #       - nic-lightspeed
+  #     ssh_public_keys:
+  #       - path: /home/rhel/.ssh/authorized_keys
+  #         key_data: "{{ pub_key_data | default(lookup('file', 'azure_demo_ssh_key.pub', errors='ignore')) }}"
+  #     ssh_password_enabled: false
+  #     vm_size: Standard_A1_v2
+  #     admin_username: rhel
+
+  tasks:
+    ## Provision VM using without using configuration mentioned in "vars"
+    # - name: Create a Standard_A1_v2 RHEL 8 VM called vm-lightspeed
+
+    ## Provision VM using configuration mentioned in "vars"
+    ## Uncomment the "vars" section above.
+    # - name: Create a VM called vm-lightspeed using vm_config var

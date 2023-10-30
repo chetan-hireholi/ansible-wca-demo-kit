@@ -1,0 +1,37 @@
+---
+- name: Install and configure Cockpit
+  hosts: rhel
+  become: true
+
+  # module_defaults:
+  #   ansible.builtin.service:
+  #     enabled: true
+  #     state: started
+
+  tasks:
+        # TASK 1
+        # # 1a. Uncomment task description below and generate a task suggestion.
+        # #     Note - The suggestion included Ansible best practices by using Fully Qualified Collection name.
+    # - name: Install cockpit package
+
+        # TASK 2
+        # # 2a. Uncomment task description below and generate a task suggestion.
+        # #     Note - Ansible Lightspeed used "ansible.builtin.template" module based on the ".j2" file extension.
+        # #     Note - The suggestion set the file permissions ("0644"), owner, and group based on Ansible best practices.
+    # - name: Copy cockpit.conf.j2 to /etc/cockpit
+
+        # TASK 3
+        # # 3a. Uncomment task description below and generate a task suggestion.
+        # #     Note - Ansible Lightspeed used the generic "Start and enable service" prompt
+        # #            and full Playbook context to infer the recommendation should start the "cockpit" service.
+        # # 3b. Uncomment the "module_defaults" section at the top of the Playbook.
+        # # 3c. Clear current task suggestion and request updated suggestion.
+        # #     Note - Ansible Lightspeed used the full Playbook context and evaluated the "module_defaults"
+        # #            when generating a suggestion.
+        # #            The updated suggestion no longer includes "enabled:" and "state:" arguments.
+    # - name: Start and enable service
+
+        # TASK 4
+        # # 4a. Uncomment task description below and generate an Ansible Playbook task suggestion.
+        # # 4b. Save the Playbook.
+    # - name: Wait 15 seconds port 9090

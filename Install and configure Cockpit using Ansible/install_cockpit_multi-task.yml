@@ -1,0 +1,12 @@
+---
+- name: Install and configure Cockpit
+  hosts: rhel
+  become: true
+
+  module_defaults:
+    ansible.builtin.service:
+      enabled: true
+      state: started
+
+  tasks:
+    # Install cockpit package & Copy cockpit.conf.j2 to /etc/cockpit & Start and enable service & Wait 15 seconds port 9090

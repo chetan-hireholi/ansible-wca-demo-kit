@@ -1,0 +1,16 @@
+---
+- name: Configure web servers
+  hosts: all
+  tasks:
+    # TASK 1
+    # Used natural language prompt to generate syntactically correct Ansible Playbook task.
+    # Suggestion incorporated Ansible best practices and used Fully Qualified Collection Name (FQCN).
+    # - name: Install httpd package
+
+    # TASK 2
+    # WCA suggestion used best practices and defined the file permissions, owner and group in the module arguments.
+    # - name: Copy httpd.conf.j2 template to /etc/httpd/conf/
+
+    # TASK 3
+    # Ansible Lightspeed used natural language prompt and added state: started and enabled: true module arguments based on Start and enable... in the Ansible task description.
+    # - name: Start and enable httpd services

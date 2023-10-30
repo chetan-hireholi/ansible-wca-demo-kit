@@ -1,0 +1,7 @@
+---
+- name: Configure web servers
+  hosts: webservers
+  become: true
+
+  tasks:
+    # Install httpd package & Copy httpd.conf.j2 template to /etc/httpd/conf/ & Start and enable httpd service
