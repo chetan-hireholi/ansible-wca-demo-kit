@@ -6,5 +6,3 @@ Thanks Pete Nuwayser, Craig Brandt for helping in curating these examples.
 - Some examples _Forked from_ https://github.com/craig-br/lightspeed-demos
 
 #### Note: Each example has its own README.md to help give context about the example.
-
-This line is added by Chetan
