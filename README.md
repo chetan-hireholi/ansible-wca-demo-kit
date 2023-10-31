@@ -1,7 +1,7 @@
 # IBM watsonx Code Assistant repository for Red Hat Ansible Lightspeed demo
 This repository contains examples which you can use to test out the capabilities of IBM watsonx Code Assistant for Ansible
 
-#### Getting started
+#### Getting started (_instructions for IBM Engineers via TechZone_)
 1. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git pull` on the VS Code terminal.
 2. Each example has its own README.md to help give context. You can follow the instructions within the README.md or the individual YAML files.
 
