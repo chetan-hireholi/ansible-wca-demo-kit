@@ -15,7 +15,7 @@ You can execute this example in two ways: "**Single-task**" and "**Multi-task**"
 In your Playbook writing experience, you usally tend to write it in a step-by-step approach. You write the single-tasks one after the other. 
 <img title="Example list" src="/Images/AWS-single-task-traditional.png">
 
-#### Speed up Playbook writing with Multi-task content generation
+#### Speed up Playbook writing with Single-task and Multi-task content generation
 
 - The Generative AI capabilities of watsonx Code Assistant will enable you complete your IT Automation in Playbook faster.
 - Simply provide your intent in plain English language and watsonx Code Assistant will return the content suggestion for it.
