@@ -17,6 +17,8 @@ With this VM demo you can test:
 
 <h4>Step 2: Trying out examples</h4>
 We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `enter`, you can get content suggestions.
+![Example list](https://github.com/chetan-hireholi/ansible-wca-demo-kit/blob/main/Images/Example-list.png "Examples")
+<img title="Example list" src="/images/Example-list.png">
 
 <h4>Step 3: Going beyond examples</h4>
 
