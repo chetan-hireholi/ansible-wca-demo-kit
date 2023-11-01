@@ -4,7 +4,7 @@
 
 With this VM demo you can test:
 - Inferencing from natural language requests.
-- Single-task and multi-task Ansible Playbook generation.
+- Single-task and multi-task content generation for Playbooks
 - Content source matching and transparency.
 
 <h3>Getting started</h3>  
