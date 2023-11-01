@@ -12,7 +12,7 @@ With this VM demo you can test:
 <h4>Step 1: Setup your environment</h4>
 
 1. IBM Sellers/Client have to provision a VM at https://techzone.ibm.com/collection/watsonx-code-assistant/journey-code-assistant-for-ansible-lightspeed
-2. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git pull` on the VS Code terminal.
+2. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git fetch` & `git pull` on the VS Code terminal.
 3. Each example has its own README.md to help give context. You can follow the instructions within the README.md or the individual YAML files.
 
 <h4>Step 2: Trying out examples</h4>
