@@ -14,17 +14,20 @@ With this VM demo you can test:
 1. IBM Sellers/Client have to provision a VM at https://techzone.ibm.com/collection/watsonx-code-assistant/journey-code-assistant-for-ansible-lightspeed
 2. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git fetch` & `git pull` on the VS Code terminal.
 3. Each example has its own README.md to help give context. You can follow the instructions within the README.md or the individual YAML files.
+<img title="Example list" src="/Images/Example-uncomment.png">
 
 <h4>Step 2: Trying out examples</h4>
-We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `enter`, you can get content suggestions.
-![Example list](https://github.com/chetan-hireholi/ansible-wca-demo-kit/blob/main/Images/Example-list.png "Examples")
-<img title="Example list" src="/images/Example-list.png">
+
+We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `Enter`, you can get content suggestions.
+<img title="Example list" src="/Images/Example-list.png">
 
 <h4>Step 3: Going beyond examples</h4>
 
 - You can test your own scenarios by writing new playbooks and modifying the prompts the way you like it.
-- For single-task content generation, you can type in the task you want to perform in plain english after the `name` parameter and press `enter` when you are done. Lightspeed will fetch you suggestions from watsonx Code Assistant.
-- For multi-task content generation, you can type in the set of tasks separated by an `&` below the `tasks` parameter. 
+- For single-task content generation, you can type in the task you want to perform in plain english after the `name` parameter and press `Enter` when you are done. Lightspeed will fetch you suggestions from watsonx Code Assistant.
+  - <img title="Example list" src="/Images/Single-task.png">
+- For multi-task content generation, you can type in the set of tasks separated by an `&` below the `tasks` parameter.
+  - <img title="Example list" src="/Images/Multi-task.png">
 
 #### FAQs
 
