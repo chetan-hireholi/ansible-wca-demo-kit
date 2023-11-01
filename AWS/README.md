@@ -23,6 +23,7 @@ In your Playbook writing experience, you usally tend to write it in a step-by-st
 
 - Now, take it to the next level by giving all the IT Automation instructions/tasks together. Type in all the individual tasks below the `tasks` parameter by separating it with an `&`. You should comment the line in order for watsonx Code Assistant to interpret the prompt.
 <img title="AWS example" src="/Images/AWS-Multi-task.png">
+<img title="AWS example" src="/Images/AWS-Multi-task-recommendation.png">
 
 This comment line now acts as a prompt to the watsonx Code Assistant.
 
