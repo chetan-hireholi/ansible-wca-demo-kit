@@ -1,6 +1,6 @@
 # IBM watsonx Code Assistant repository for Red Hat Ansible Lightspeed demo
 
-<h3>This repository contains examples which you can use to test out the capabilities of IBM watsonx Code Assistant for Ansible.</h3>
+<h3>This repository contains examples which you can use to test out the capabilities of IBM watsonx Code Assistant for Ansible Lightspeed.</h3>
 
 With this VM demo you can test:
 - Inferencing from natural language requests.
