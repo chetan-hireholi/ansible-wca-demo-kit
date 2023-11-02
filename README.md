@@ -51,11 +51,17 @@ This comment line now acts as a prompt to the watsonx Code Assistant.
 - Now that you know how watsonx Code Assistant can interpret the prompts, you can start framing your IT Automations in a sentance and just hit `Enter`
 - You can test your own scenarios by writing new playbooks and modifying the prompts the way you like it.
 
-#### FAQs
+## FAQ
 
 1. Who are the main audience for this demo setup? _ONLY IBM INTERNAL. IBM Sellers & IBM Client Engineering teams. To provision a VM go to: https://techzone.ibm.com/collection/watsonx-code-assistant/journey-code-assistant-for-ansible-lightspeed_
 2. What is the purpose of this demo setup? _This technical content can help you get acquainted with watsonx Code Assistant's features and provide you an opportunity for a live demo to clients_
 3. Even after logging into the VM, it asks me to re-authenticate. Which credentials to provide? _The same credentials you input to connect to the VM_
 
-#### Thank You
+## Stay connected
+
+Reach out to the watsonx Code Assistant team on the IBM internal slack channel on IBM Software workspace: 
+- `#wca-ansible-techzone-support`: Use this slack channel to discuss/ask for support/feedback specifically on TechZone Demo.
+- `#watsonx-code-assistant`: Use this slack channel to ask questions and get the latest updates around IBM watsonx Code Assistant.
+
+## Thank You
 _Thanks Pete Nuwayser, Craig Brandt for helping in curating these examples. Some examples _Forked from_ https://github.com/craig-br/lightspeed-demos_
