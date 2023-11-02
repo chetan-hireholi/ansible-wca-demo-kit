@@ -14,30 +14,34 @@ With this VM demo you can test:
 1. IBM Sellers/Client have to provision a VM at https://techzone.ibm.com/collection/watsonx-code-assistant/journey-code-assistant-for-ansible-lightspeed
 2. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git fetch` & `git pull` on the VS Code terminal.
 3. Each example has its own README.md to help give context. You can follow the instructions within the README.md or the individual YAML files.
-<img title="Example README.md" src="/Images/Example-read-me.png">
+
+    ![](/Images/Example-read-me.png)
 
 <h3>Step 2: Trying out examples</h3>
 
 We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `Enter`, you can get content suggestions. To accept the content suggested, hit `Tab`.
-<img title="Example list" src="/Images/Example-uncomment.png">
+![](/Images/Example-uncomment.png)
 
 <h3>Step 3: Testing Single-task and Mutli-task Playbook content generation</h3>
 
 <h4>Traditional Playbook writing experience</h4>
 
 In your Playbook writing experience, you usally tend to write it in a step-by-step approach. You write the single-tasks one after the other. 
-<img title="Example list" src="/Images/AWS-single-task-traditional.png">
+<!-- <img title="Example list" src="/Images/AWS-single-task-traditional.png"> -->
+![](/Images/AWS-single-task-traditional.png)
 
 <h4>Speed up Playbook writing with Single-task & Multi-task content generation</h4>
 
 - The Generative AI capabilities of watsonx Code Assistant will enable you complete your IT Automation in Playbook faster.
 - Simply provide your intent in plain English language and watsonx Code Assistant will return the content suggestion for it.
 - In the below example we show single-task prompt and the recommendation by watsonx Code Assistant:
-<img title="AWS example" src="/Images/AWS-single-task.png">
+<!-- <img title="AWS example" src="/Images/AWS-single-task.png"> -->
+![](/Images/AWS-single-task.png)
 
 - Now, take it to the next level by giving all the IT Automation instructions/tasks together. Type in all the individual tasks below the `tasks` parameter by separating it with an `&`. You should comment the line in order for watsonx Code Assistant to interpret the prompt.
 - In the below example we show multi-task prompt and the recommendation by watsonx Code Assistant:
-<img title="AWS example" src="/Images/AWS-Multi-task-recommendation.png">
+<!-- <img title="AWS example" src="/Images/AWS-Multi-task-recommendation.png"> -->
+![](/Images/AWS-Multi-task-recommendation.png)
 
 This comment line now acts as a prompt to the watsonx Code Assistant.
 
