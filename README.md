@@ -20,6 +20,7 @@ With this VM demo you can test:
 <h3>Step 2: Trying out examples</h3>
 
 We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `Enter`, you can get content suggestions. To accept the content suggested, hit `Tab`.
+
 ![](/Images/Example-uncomment.png)
 
 <h3>Step 3: Testing Single-task and Mutli-task Playbook content generation</h3>
