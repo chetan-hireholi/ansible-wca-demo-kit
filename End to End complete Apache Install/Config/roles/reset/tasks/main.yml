@@ -1,0 +1,25 @@
+---
+- name: Delete /ibmdata/htdocs directory
+  ansible.builtin.file:
+    path: /ibmdata/htdocs
+    state: absent
+
+- name: Remove httpd
+  ansible.builtin.package:
+    name: httpd
+    state: absent
+
+- name: Remove /var/log/httpd directory owned by root:root with 0750 permissions
+  ansible.builtin.file:
+    path: /var/log/httpd
+    state: absent
+
+- name: Delete file /etc/httpd/conf/httpd.conf
+  ansible.builtin.file:
+    path: /etc/httpd/conf/httpd.conf
+    state: absent
+
+- name: Delete file /ibmdata/htdocs/index.html
+  ansible.builtin.file:
+    path: /ibmdata/htdocs/index.html
+    state: absent

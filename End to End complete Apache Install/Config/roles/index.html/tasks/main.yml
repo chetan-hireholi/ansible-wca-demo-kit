@@ -1,0 +1,2 @@
+---
+# - name: Create index.html from a template and save it as /ibmdata/htdocs/index.html owned by apache:apache

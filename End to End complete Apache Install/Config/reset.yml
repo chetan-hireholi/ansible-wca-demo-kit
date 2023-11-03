@@ -1,0 +1,7 @@
+---
+- name: Reset Demo Environment
+  hosts: apacheservers
+  remote_user: cecuser
+  become: true
+  roles:
+    - reset

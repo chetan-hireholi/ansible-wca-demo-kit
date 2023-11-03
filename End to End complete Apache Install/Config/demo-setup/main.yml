@@ -1,0 +1,66 @@
+---
+# install the tarball of the roles directory 
+
+- name: Install software
+  connection: local
+  hosts: localhost
+  become: false
+  vars:
+    brew_casks:
+      - visual-studio-code
+    homebrew_is_already_installed: true
+    vscode_is_already_installed: true
+  when:
+    - ansible_facts['os_family'] == "Darwin"
+
+  # make sure homebrew is installed
+
+  pre_tasks:
+
+    - name: Ensuring Homebrew is Installed
+      ansible.builtin.command:
+        cmd: brew --version
+      register: homebrew_check
+      changed_when: false
+      failed_when: false
+
+    - name: Fail if Homebrew is not installed and install_homebrew_if_missing is false
+      ansible.builtin.fail:
+        msg: Homebrew is not installed, install from 'homebrew_cask' or upgrade via 'brew upgrade'
+      when:
+        - homebrew_check.rc != 0
+        - not homebrew_is_already_installed
+
+    - name: Installing Homebrew
+      ansible.builtin.command:
+        cmd: xcode-select --install
+      changed_when:
+        - homebrew_check.rc != 0
+        - not homebrew_is_already_installed
+
+  tasks:
+    # since we're using homebrew to perform a scripted installation of vscode,
+    # we have to first make sure it hasn't already been installed by some other means
+    # so as not to create problems down the road
+
+    - name: Ensuring VS Code is Installed
+      ansible.builtin.command:
+        cmd: code --version
+      register: vscode_check
+      changed_when: false
+      failed_when: false
+
+    - name: Fail if VS Code is not installed and install_vscode_if_missing is false
+      ansible.builtin.fail:
+        msg: 'Microsoft VS Code is not installed, will install now using `brew install --cask visual-studio-code`'
+      when:
+        - vscode_check.rc != 0
+        - not vscode_is_already_installed
+
+    - name: Installing VS Code with homebrew
+      community.general.homebrew_cask:
+        name: visual-studio-code
+        state: present
+      when:
+        - vscode_check.rc != 0
+        - not vscode_is_already_installed

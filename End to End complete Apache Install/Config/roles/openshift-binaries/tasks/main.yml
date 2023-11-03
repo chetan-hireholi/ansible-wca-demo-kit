@@ -1,0 +1,2 @@
+---
+# - name: unarchive local tarballs fake-openshift-client-linux.tar.gz and fake-openshift-install-linux.tar.gz to /usr/local/bin on remote with mode 0755

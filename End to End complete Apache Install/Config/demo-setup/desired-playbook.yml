@@ -1,0 +1,161 @@
+---
+# Pete's manually generated Ansible Code to install Apache on a VM
+# with some customizations.
+# This is taken from https://github.ibm.com/pnuw/ocp-install-cohort-playbook-week1.git
+# and converted from four separately maintained roles' tasks/main.yml into 
+# a single monolithic yaml file, for demo purposes.
+#
+# This is only meant to be a reference for what we would like the end result to look like.
+#
+# Consolidated Roles:
+# 1. httpd install/config - create custom documentRoot
+# 2. httpd.conf - install customized httpd.conf
+# 3. index.html - install parameterized index.html in custom documentRoot
+# 4. openshift-binaries - install openshift-install & oc client to /usr/local/bin
+
+# First, let's set up the basics and some parameters
+- hosts: apacheservers 
+  remote_user: cecuser
+  become: true
+  vars:
+    http_port: 8080                         # used in httpd.conf
+    apache_document_root: /ibmdata/htdocs   # used in a couple of places
+    server_type: httpd                     # used in custom index.html
+    additional_disk_device: /dev/vdd
+
+# httpd install/config role
+
+- name: create /ibmdata
+  ansible.builtin.file:
+    path: /ibmdata
+    owner: root
+    group: root
+    mode: '0755'
+    seuser: system_u
+    serole: object_r
+    setype: httpd_sys_content_t
+    selevel: s0
+    state: directory
+    recurse: true
+
+# TODO: create a partition on the second drive
+# TODO: format the new partition with xfs
+
+- name: mount /ibmdata
+  ansible.posix.mount:
+    path: /ibmdata
+    src: "{{ additional_disk_device }}"
+    fstype: xfs
+    state: present
+
+- name: create /ibmdata/htdocs directory
+  ansible.builtin.file:
+    path: /ibmdata/htdocs
+    owner: root
+    group: root
+    mode: '0755'
+    seuser: system_u
+    serole: object_r
+    setype: httpd_sys_content_t
+    selevel: s0
+    state: directory
+    recurse: true
+
+- name: Install latest Apache
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+
+- name: Allow Apache to listen on tcp ports 8080 and 8443
+  community.general.seport:
+    ports: 8080,8443
+    proto: tcp
+    setype: http_port_t
+    state: present
+
+- name: Enable httpd to start up at boot
+  ansible.builtin.systemd:
+    name: httpd.service
+    enabled: true
+
+# httpd.conf role
+
+##HARDENING: B8 - SC-5, SC-6, SC-28 - PID File Security - Agency Minimum config, CIS 1.3.8
+- name: Create /var/log/httpd for pid file location 
+  ansible.builtin.file: 
+    dest: '/var/log/httpd' 
+    state: directory 
+    mode: '0750'
+    owner: root 
+    group: root 
+    seuser: unconfined_u 
+    serole: object_r 
+    setype: var_log_t 
+    selevel: s0
+
+- name: Update httpd.conf
+  ansible.builtin.template: 
+    src: httpd.conf.j2 
+    dest: /etc/httpd/conf/httpd.conf
+    owner: root 
+    group: root 
+    mode: '0644 '
+    seuser: system_u 
+    serole: object_r 
+    setype: httpd_config_t 
+    selevel: s0
+    backup: true
+  notify: Restart httpd
+
+# TO-DO: figure out the best way to refer to the handler: in this file, or in 
+#        a sep folder?
+
+# TO-DO: put a simple task to copy a non-templated httpd.conf to the right place
+
+# index.html role
+# put index.html in the right place w the right perms 
+
+- name: make sure we have the right folders in place
+  ansible.builtin.file:
+    path: "{{ apache_document_root }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+    seuser: system_u
+    serole: object_r
+    setype: httpd_sys_content_t
+    selevel: s0
+    
+- name: install index.html 
+  ansible.buiiltin.template:
+    src: index.html.j2
+    dest: "{{ apache_document_root }}/index.html"
+    owner: apache 
+    group: apache 
+    mode: '0644'
+    seuser: unconfined_u 
+    serole: object_r 
+    setype: httpd_sys_content_t 
+    selevel: s0
+    backup: true
+
+# TO-DO: replace the template block with a static copy block using
+#        a non-templated index.html
+
+# openshift-binaries role
+# install openshift-client & openshift-install 4.8.52
+
+- name: untar files from here to /usr/local/bin
+  ansible.builtin.unarchive:
+    src: "{{ item }}"
+    dest: /usr/local/bin
+    exclude: README.md
+    mode: '0755'
+    seuser: system_u
+    serole: object_r
+    setype: bin_t
+    selevel: s0
+  with_items:
+  - fake-openshift-client-linux.tar.gz
+  - fake-openshift-install-linux.tar.gz
