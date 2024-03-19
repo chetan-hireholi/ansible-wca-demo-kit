@@ -1,0 +1,18 @@
+---
+- name: Deploy infrastructure
+  hosts: all
+  
+  tasks:
+    - name: Create an OpenShift cluster
+      register: cluster_create_output
+      when: cluster_output.rc != 0
+      ibm.cloudcollection.ibm_container_cluster:
+        name: test_cluster
+        datacenter: "{{ datacenter }}"
+        machine_type: "{{ machine_type }}"
+        hardware: "{{ hardware }}"
+        kube_version: 4.14_openshift
+        public_vlan_id: "{{ public_vlan_id }}"
+        private_vlan_id: "{{ private_vlan_id }}"
+        default_pool_size: "{{ default_worker_pool_size }}"
+        entitlement: "{{ entitlement }}"

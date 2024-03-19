@@ -1,0 +1,57 @@
+---
+- name: Automate servicenow  
+  hosts: localhost
+  connection: local
+
+
+  tasks:
+  - name: Create incident "Failure onboarding new user" urgency high
+
+
+
+
+    
+
+    
+
+  
+
+
+
+
+
+
+
+
+    # Always give your tasks a useful name
+    - name: Create incident
+
+      # This task leverages the 'incident' module from the 'itsm' collection 
+      # within the 'servicenow' namespace
+      servicenow.itsm.incident:
+
+        state: new
+        caller: "{{ lookup('env', 'SN_USERNAME') }}"
+
+        # Feel free to modify this line
+        short_description: "User created a new incident using Ansible Automation Platform"
+
+        # These fields can also contain different variables from previous workflow steps,
+        # environment variables, etc.. Feel free to modify this line
+        description: "User {{ lookup('env', 'SN_USERNAME') }} successfully created a new incident!"
+        impact: low
+        urgency: low
+      
+      # Register the output of this task for use within subsequent tasks
+      register: new_incident
+
+    - set_fact:
+        incident_number_cached: "{{ new_incident.record.number }}"
+        cacheable: true
+
+    - debug:
+
+        # Use the output of the incident creation task to display the incident number
+        msg: "A new incident has been created: {{ new_incident.record.number }}"
+
+
