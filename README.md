@@ -18,11 +18,11 @@ With this VM demo you can test:
 
     <!-- ![Ansible extension login](/Images/RH_web_login.png) -->
 
-    <img src="/Users/chetanhireholi/Documents/WCA Demos/IBM Tech/Github/ansible-wca-demo-kit/Images/RH_web_login.png" alt="image" width="300" height="300">
+    <img src="./Images/RH_web_login.png" alt="image" width="300" height="300">
 
 3. Once you have logged in successfully, and back on VS Code, you can confirm the Red Hat License by clicking on the Ansible icon on the left panel
 
-    <img src="/Users/chetanhireholi/Documents/WCA Demos/IBM Tech/Github/ansible-wca-demo-kit/Images/Ansible_ext_login_confirm.png" alt="image" width="300" height="300">
+    <img src="./Images/Ansible_ext_login_confirm.png" alt="image" width="300" height="300">
 
 
 <h3>Setup your environment</h3>
@@ -53,7 +53,7 @@ In your Playbook writing experience, you usally tend to write it in a step-by-st
 - In the below example we show single-task prompt and the recommendation by watsonx Code Assistant:
 <!-- <img title="AWS example" src="/Images/AWS-single-task.png"> -->
 <!-- ![](/Images/AWS-single-task.png) -->
-<img src="/Users/chetanhireholi/Documents/WCA Demos/IBM Tech/Github/ansible-wca-demo-kit/Images/AWS-single-task.png" alt="image" width="400" height="300">
+<img src="./Images/AWS-single-task.png" alt="image" width="400" height="300">
 
 - Now, take it to the next level by giving all the IT Automation instructions/tasks together. Type in all the individual tasks below the `tasks` parameter by separating it with an `&`. You should comment the line in order for watsonx Code Assistant to interpret the prompt.
 - In the below example we show multi-task prompt and the recommendation by watsonx Code Assistant:
