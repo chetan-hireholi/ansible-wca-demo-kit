@@ -12,15 +12,16 @@ With this VM demo you can test:
 <h3>Logging into Ansible Extension on VS Code</h3>
 
 1. The Lightspeed service only works on VS Code with an active Red Hat Ansible Automation Platform Subscription. Hence, you need to login to the Ansible Extension with a Red Hat ID in order to enable Lightspeed service.
-2. In this VM setup, we have saved an active Red Hat ID in the Firefox web-browser.
+2. To login, go to the Ansible icon on your left panel and click "Connect" under Ansible Lightspeed Login. Upon clicking, "Allow" the link to open in the browser.
     
     ![Ansible extension login](/Images/Ansible_ext_login.png)
 
     <!-- ![Ansible extension login](/Images/RH_web_login.png) -->
+3. In this VM setup, we have saved an active Red Hat ID in the Firefox web-browser.
 
     <img src="./Images/RH_web_login.png" alt="image" width="300" height="300">
 
-3. Once you have logged in successfully, and back on VS Code, you can confirm the Red Hat License by clicking on the Ansible icon on the left panel
+4. Once you have logged in successfully, and back on VS Code, you can confirm the Red Hat License by clicking on the Ansible icon on the left panel
 
     <img src="./Images/Ansible_ext_login_confirm.png" alt="image" width="300" height="300">
 
