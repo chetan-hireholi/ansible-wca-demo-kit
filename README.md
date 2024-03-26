@@ -4,26 +4,41 @@
 
 With this VM demo you can test:
 - Inferencing from natural language requests.
-- Single-task and multi-task content generation for Playbooks
-- Content source matching and transparency.
+- Single-task and Multi-task content generation for Playbooks
+- Code Similarity and transparency.
 
 <h2>Getting started</h2>  
 
-<h3>Step 1: Setup your environment</h3>
+<h3>Logging into Ansible Extension on VS Code</h3>
 
-1. IBM Sellers/Client have to provision a VM at https://techzone.ibm.com/collection/watsonx-code-assistant/journey-code-assistant-for-ansible-lightspeed
-2. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git fetch` & `git pull` on the VS Code terminal.
-3. Each example has its own README.md to help give context. You can follow the instructions within the README.md or the individual YAML files.
+1. The Lightspeed service only works on VS Code with an active Red Hat Ansible Automation Platform Subscription. Hence, you need to login to the Ansible Extension with a Red Hat ID in order to enable Lightspeed service.
+2. In this VM setup, we have saved an active Red Hat ID in the Firefox web-browser.
+    
+    ![Ansible extension login](/Images/Ansible_ext_login.png)
+
+    <!-- ![Ansible extension login](/Images/RH_web_login.png) -->
+
+    <img src="/Users/chetanhireholi/Documents/WCA Demos/IBM Tech/Github/ansible-wca-demo-kit/Images/RH_web_login.png" alt="image" width="300" height="300">
+
+3. Once you have logged in successfully, and back on VS Code, you can confirm the Red Hat License by clicking on the Ansible icon on the left panel
+
+    <img src="/Users/chetanhireholi/Documents/WCA Demos/IBM Tech/Github/ansible-wca-demo-kit/Images/Ansible_ext_login_confirm.png" alt="image" width="300" height="300">
+
+
+<h3>Setup your environment</h3>
+
+1. Update your working directory (`/home/techzone/Documents/ansible-wca-demo-kit`) with the latest examples: Perform `git fetch` & `git pull` on the VS Code terminal.
+2. Each example has its own README.md to help give context. You can follow the instructions within the README.md or the individual YAML files.
 
     ![](/Images/Example-read-me.png)
 
-<h3>Step 2: Trying out examples</h3>
+<h3>Trying out examples</h3>
 
 We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `Enter`, you can get content suggestions. To accept the content suggested, hit `Tab`.
 
 ![](/Images/Example-uncomment.png)
 
-<h3>Step 3: Testing Single-task and Mutli-task Playbook content generation</h3>
+<h3>Testing Single-task and Mutli-task Playbook content generation</h3>
 
 <h4>Traditional Playbook writing experience</h4>
 
@@ -37,7 +52,8 @@ In your Playbook writing experience, you usally tend to write it in a step-by-st
 - Simply provide your intent in plain English language and watsonx Code Assistant will return the content suggestion for it.
 - In the below example we show single-task prompt and the recommendation by watsonx Code Assistant:
 <!-- <img title="AWS example" src="/Images/AWS-single-task.png"> -->
-![](/Images/AWS-single-task.png)
+<!-- ![](/Images/AWS-single-task.png) -->
+<img src="/Users/chetanhireholi/Documents/WCA Demos/IBM Tech/Github/ansible-wca-demo-kit/Images/AWS-single-task.png" alt="image" width="400" height="300">
 
 - Now, take it to the next level by giving all the IT Automation instructions/tasks together. Type in all the individual tasks below the `tasks` parameter by separating it with an `&`. You should comment the line in order for watsonx Code Assistant to interpret the prompt.
 - In the below example we show multi-task prompt and the recommendation by watsonx Code Assistant:
