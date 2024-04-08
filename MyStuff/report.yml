@@ -1,0 +1,28 @@
+- name: Create a host report
+
+  tasks:
+
+    # Extract the Linux OS type & Extract the OS version & Extract the uptime and store the information in variables
+    - name: Extract the Linux OS type
+      ansible.builtin.command: uname -s
+      register: os_type
+
+    - name: Extract the OS version
+      ansible.builtin.command: uname -r
+      register: os_version
+
+    - name: Extract the uptime and store the information in variables
+      ansible.builtin.command: uptime
+      register: uptime
+    
+    - name: Print out a report using the variables that were extracted
+      ansible.builtin.debug:
+        msg:
+          - 'OS Type: {{ os_type.stdout }}'
+          - 'OS Version: {{ os_version.stdout }}'
+          - 'Uptime: {{ uptime.stdout }}'
+    
+
+
+
+
