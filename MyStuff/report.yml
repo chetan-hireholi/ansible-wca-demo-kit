@@ -16,9 +16,11 @@
       ansible.builtin.command: uptime
       register: uptime
 
-    - name: Extract the exact OS distribution in a variable
-      ansible.builtin.command: cat /etc/os-release
-      register: os_distro
+    # - name: Extract the exact OS distribution in a variable
+
+    - name: Extract the exact OS distribution in a variable using the Ansible facts
+      ansible.builtin.set_fact:
+        os_distribution: "{{ ansible_facts.distribution }}"
     
     
     - name: Print out a report using the variables that were extracted
@@ -26,8 +28,15 @@
         msg:
           - 'OS Type: {{ os_type.stdout }}'
           - 'OS Version: {{ os_version.stdout }}'
-          - 'OS Distribution: {{ os_distro.stdout }}'
+          - 'OS Distribution: {{ os_distribution }}'
           - 'Uptime: {{ uptime.stdout }}'
+    
+    - name: Create a directory under /tmp with the connected user name
+      ansible.builtin.file:
+        path: /tmp/{{ ansible_user_id }}
+        state: directory
+        mode: '0755'
+    
     
     - name: Print out a report using the variables that were exracted in a JSON format in a file called my_host.json saved in the user home directory
       ansible.builtin.copy:
@@ -35,19 +44,31 @@
           {
             "os_type": "{{ os_type.stdout }}",
             "os_version": "{{ os_version.stdout }}",
-            "os_distro": "{{ os_distro.stdout }}",
-            "uptime": "{{ uptime.stdout }}"
+            "os_distribution": "{{ os_distribution }}",
+            "uptime": "{{ uptime.stdout }}",
+            "user_name": "{{ ansible_user_id }}",
+            "user_home": "{{ ansible_user_dir }}"
           }
-        dest: /home/{{ ansible_user }}/my_host.json
+        dest: /tmp/{{ ansible_user_id }}/my_host.json
+        mode: '0755'
     
-
-    
+      # ansible.builtin.copy:
+      #   content: |
+      #     {
+      #       "os_type": "{{ os_type.stdout }}",
+      #       "os_version": "{{ os_version.stdout }}",
+      #       "os_distro": "{{ os_distro.stdout }}",
+      #       "uptime": "{{ uptime.stdout }}"
+      #     }
+      #   dest: /home/{{ ansible_user }}/my_host.json
+       
     - name: Fetch the generated file on the remote server to my localhost and rename the file to remote-hostname appended with the source filename
       ansible.builtin.fetch:
         src: /home/{{ ansible_user }}/my_host.json
         dest: /home/{{ ansible_user }}/{{ inventory_hostname }}.json
         flat: true
     
+        
 
 
     
