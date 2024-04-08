@@ -5,17 +5,44 @@
 
   tasks:
 
-    - name: With the server identified by the var hostName, gather the RAM usage
-      ansible.builtin.command: free -m
-      register: ram_usage
-      changed_when: false
+    # - name: With the server identified by the var hostName, gather the RAM usage
+    #   ansible.builtin.command: free -m
+    #   register: ram_usage
+    #   changed_when: false
+
+    - name: Get the free memory out of the Ansible facts
+      ansible.builtin.set_fact:
+        free_memory: "{{ ansible_facts.memory_mb.free }}"
     
+    - name: Get the used memory out of the Ansible facts
+      ansible.builtin.set_fact:
+        used_memory: "{{ ansible_facts.memory_mb.used }}"
+    
+    - name: Compute the percentage value of the used memory from the variables
+      ansible.builtin.set_fact:
+        percentage_used_memory: "{{ (used_memory / free_memory) * 100 }}"
+    
+
+
+
+    - name: Get the free memory out of the Ansible facts
+      ansible.builtin.set_fact:
+        the_free_memory: "{{ ansible_memtotal_mb }}"
+    
+    - name: Print debug the free memory gathered from the facts
+
+
+    - name: Print in the console the value of the ram_usage
+      ansible.builtin.debug:
+        msg: "{{ ram_usage.stdout }}"
+    
+
     - name: Extract the free memory from the register
       ansible.builtin.set_fact:
         free_memory: "{{ ram_usage.stdout | regex_search('^Mem: (\\d+)M', '\\1') | first
           }}"
     
-    
+
     
     
 
