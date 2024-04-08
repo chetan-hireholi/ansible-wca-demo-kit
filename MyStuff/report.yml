@@ -29,7 +29,7 @@
           - 'OS Distribution: {{ os_distro.stdout }}'
           - 'Uptime: {{ uptime.stdout }}'
     
-    - name: Print out a report using the variables that were exracted in a JSON format in a file called my_host.json
+    - name: Print out a report using the variables that were exracted in a JSON format in a file called my_host.json saved in the user home directory
       ansible.builtin.copy:
         content: |
           {
@@ -38,14 +38,18 @@
             "os_distro": "{{ os_distro.stdout }}",
             "uptime": "{{ uptime.stdout }}"
           }
-        dest: my_host.json
+        dest: /home/{{ ansible_user }}/my_host.json
     
-    - name: Copy the generated file on the remote server to my localhost and rename the file to remote-hostname appended with the source filename
-      ansible.builtin.copy:
-        src: my_host.json
-        dest: '{{ inventory_hostname }}.json'
-        remote_src: true
-        force: true
+
+    
+    - name: Fetch the generated file on the remote server to my localhost and rename the file to remote-hostname appended with the source filename
+      ansible.builtin.fetch:
+        src: /home/{{ ansible_user }}/my_host.json
+        dest: /home/{{ ansible_user }}/{{ inventory_hostname }}.json
+        flat: true
+    
+
+
     
     
 
