@@ -1,0 +1,21 @@
+- name: OS Management tasks
+
+  vars:
+    hostName: localhost
+
+  tasks:
+
+    - name: With the server identified by the var hostName, gather the RAM usage
+      ansible.builtin.command: free -m
+      register: ram_usage
+      changed_when: false
+    
+    - name: Extract the free memory from the register
+      ansible.builtin.set_fact:
+        free_memory: "{{ ram_usage.stdout | regex_search('^Mem: (\\d+)M', '\\1') | first
+          }}"
+    
+    
+    
+    
+
