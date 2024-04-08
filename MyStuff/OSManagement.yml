@@ -22,7 +22,13 @@
       ansible.builtin.set_fact:
         percentage_used_memory: "{{ (used_memory / free_memory) * 100 }}"
     
-
+    - name: Print the value of all the memory variables
+      ansible.builtin.debug:
+        msg:
+          - 'Free memory: {{ free_memory }}'
+          - 'Used memory: {{ used_memory }}'
+          - 'Percentage used memory: {{ percentage_used_memory }}'
+    
 
 
     - name: Get the free memory out of the Ansible facts
