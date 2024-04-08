@@ -40,6 +40,16 @@
           }
         dest: my_host.json
     
+    - name: Copy the generated file on the remote server to my localhost and rename the file to remote-hostname appended with the source filename
+      ansible.builtin.copy:
+        src: my_host.json
+        dest: '{{ inventory_hostname }}.json'
+        remote_src: true
+        force: true
+    
+    
+
+
 
     
 
