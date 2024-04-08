@@ -1,5 +1,6 @@
 - name: Create a host report
-
+  hosts: myhosts
+  
   tasks:
 
     # Extract the Linux OS type & Extract the OS version & Extract the uptime and store the information in variables
