@@ -29,6 +29,18 @@
           - 'OS Distribution: {{ os_distro.stdout }}'
           - 'Uptime: {{ uptime.stdout }}'
     
+    - name: Print out a report using the variables that were exracted in a JSON format in a file called my_host.json
+      ansible.builtin.copy:
+        content: |
+          {
+            "os_type": "{{ os_type.stdout }}",
+            "os_version": "{{ os_version.stdout }}",
+            "os_distro": "{{ os_distro.stdout }}",
+            "uptime": "{{ uptime.stdout }}"
+          }
+        dest: my_host.json
+    
+
     
 
 
