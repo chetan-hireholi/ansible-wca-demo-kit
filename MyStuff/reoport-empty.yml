@@ -1,0 +1,24 @@
+- name: Create a host report
+  hosts: myhosts
+
+  tasks:
+
+    # Extract the Linux OS type & Extract the OS version & Extract the uptime and store the information in variables
+    
+
+
+    # - name: Extract the exact OS distribution in a variable using the Ansible facts
+    
+
+    
+    
+    # - name: Print out a report using the variables that were extracted
+    
+    # - name: Create a directory under /tmp with the connected user name
+    
+    
+    # - name: Print out a report using the variables that were exracted in a JSON format in a file called my_host.json saved in the user home directory
+    
+       
+    # - name: Fetch the generated file on the remote server to my localhost and rename the file to remote-hostname appended with the source filename
+    

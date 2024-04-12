@@ -64,9 +64,10 @@
        
     - name: Fetch the generated file on the remote server to my localhost and rename the file to remote-hostname appended with the source filename
       ansible.builtin.fetch:
-        src: /home/{{ ansible_user }}/my_host.json
-        dest: /home/{{ ansible_user }}/{{ inventory_hostname }}.json
+        src: /tmp/{{ ansible_user_id }}/my_host.json
+        dest: /tmp/my_host.json
         flat: true
+    
     
         
 
