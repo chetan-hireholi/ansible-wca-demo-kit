@@ -1,22 +1,22 @@
 ---
 - name: Install and Configure Cockpit
   hosts: your_servers
-  become: yes
-  
+  become: true
+
   tasks:
     - name: Update apt cache (for Ubuntu)
       apt:
-        update_cache: yes
+        update_cache: true
       when: ansible_os_family == "Debian"
 
     - name: Install Cockpit package
       package:
         name: cockpit
         state: present
-      become: yes
+      become: true
 
     - name: Start Cockpit service and enable it on boot
       service:
         name: cockpit
         state: started
-        enabled: yes
+        enabled: true
