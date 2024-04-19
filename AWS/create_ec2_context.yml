@@ -23,7 +23,7 @@
         # #     Note - Best practices: The suggestion used the Fully Qualified Collection name.
         # #     Note - Context: Ansible Lightspeed used the Playbook name "EC2 Cloud Operations" to use the correct "amazon.aws.ec2_vpc_subnet_info" module.
     # - name: Gather subnet info tag:Name subnet-lightspeed
-    
+
         # TASK 2
         # # 2a. Uncomment task description below and generate a task suggestion.
         # #     Note - Context: The suggestion included the previous task's registered variable in the suggestion.

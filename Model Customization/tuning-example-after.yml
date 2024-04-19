@@ -1,7 +1,7 @@
 ---
 - name: Deploy infrastructure
   hosts: all
-  
+
   tasks:
     - name: Create an OpenShift cluster
       register: cluster_create_output
