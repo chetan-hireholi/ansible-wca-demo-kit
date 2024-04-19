@@ -24,4 +24,3 @@
 
   tasks:
     # Run podman container using pgadmin_container var & Start, enable and reload daemon for {{ pgadmin_service_name }}
-    
