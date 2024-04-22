@@ -5,57 +5,33 @@
 
   tasks:
 
-    # - name: Extract the ansible facts. From the facts , create varaiables with the real free, real used and real total
+    # TASK 1
+    # This prompt will generate something close to what we want but not exactly. But it is pointing us 
+    # to the right section in the ansible facts.
+    # https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
+    # 
+    # - name: Using the Ansible Facts, extract memory values and create variables with the values real free, real used and real total
+
+
+    # TASK 2
+    # This prompt contains enough details to have a consice and exact code block
+    #
+    # - name: Extract the ansible facts. From the facts ansible_memory_mb.real, create variables with the real free, real used and real total memory in mb   
+  
     
-
-    - name: Extract the ansible facts. From the facts ansible_memory_mb.real, create variables with the real free, real used and real total memory in mb
-      ansible.builtin.set_fact:
-        free_memory: "{{ ansible_memory_mb.real.free }}"
-        used_memory: "{{ ansible_memory_mb.real.used }}"
-        total_memory: "{{ ansible_memory_mb.real.total }}"
+    # TASK 3
+    # Using the variables generated previsously, we want the code to compute used memory in percentage
+    #    
+    # - name: Compute the percentage value of the used memory from the variables
     
+    # TASK 4
+    # Using the same approach, extrat the free memory in percentage
+    # - name: Using the variables generated previously, we want the code to compute the free memory in percentage
 
-    - name: Get the free memory out of the Ansible facts
-      ansible.builtin.set_fact:
-        free_memory: "{{ ansible_facts.memory_mb.free }}"
+
+    # TASK 5
+    # - name: Print the value of all the memory variables
     
-    - name: Get the used memory out of the Ansible facts
-      ansible.builtin.set_fact:
-        used_memory: "{{ ansible_facts.memory_mb.used }}"
-    
-    - name: Compute the percentage value of the used memory from the variables
-      ansible.builtin.set_fact:
-        percentage_used_memory: "{{ (used_memory / free_memory) * 100 }}"
-    
-    - name: Print the value of all the memory variables
-      ansible.builtin.debug:
-        msg:
-          - 'Free memory: {{ free_memory }}'
-          - 'Used memory: {{ used_memory }}'
-          - 'Percentage used memory: {{ percentage_used_memory }}'
-    
-
-
-    # - name: Get the free memory out of the Ansible facts
-    #   ansible.builtin.set_fact:
-    #     the_free_memory: "{{ ansible_memtotal_mb }}"
-    
-    - name: Print debug the free memory gathered from the facts
-
-
-
-
-    - name: Print in the console the value of the ram_usage
-      ansible.builtin.debug:
-        msg: "{{ ram_usage.stdout }}"
-    
-
-    - name: Extract the free memory from the register
-      ansible.builtin.set_fact:
-        free_memory: "{{ ram_usage.stdout | regex_search('^Mem: (\\d+)M', '\\1') | first
-          }}"
-    
-
     
     
 
