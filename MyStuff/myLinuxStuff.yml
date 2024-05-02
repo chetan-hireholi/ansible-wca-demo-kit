@@ -1,3 +1,5 @@
+---
+
 - name: Prepare a Linux box with a user, member of a group and group part of the sudoers
 
   collections:

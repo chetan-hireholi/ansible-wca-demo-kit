@@ -18,39 +18,30 @@
     # TASK 2
     # This prompt contains enough details to have a consice and exact code block
     #
-    - name: Extract the ansible facts. From the facts ansible_memory_mb.real, create variables with the real free, real used and real total memory in mb
-      ansible.builtin.set_fact:
-        free_memory: "{{ ansible_memory_mb.real.free }}"
-        used_memory: "{{ ansible_memory_mb.real.used }}"
-        total_memory: "{{ ansible_memory_mb.real.total }}"
+    - name: From the Ansible facts ansible_memory_mb.real, create variables with the free, used and total memory in mb
     
-  
     
     # TASK 3
     # Using the variables generated previsously, we want the code to compute used memory in percentage
-    #    
-    - name: Compute the percentage value of the used memory from the variables
-      ansible.builtin.set_fact:
-        percentage_used_memory: "{{ used_memory | int / total_memory | int * 100 }}"
+    # Show that the engine may not be aware that we are dealing with strings   
+    #   second prompt: Convert variables to int and compute the percentage value of the used memory
+    - name: Compute the percentage value of the used memory
     
-    
+
     # TASK 4
-    # Using the same approach, extrat the free memory in percentage
-    - name: Using the variables generated previously, we want the code to compute the free memory in percentage
-      ansible.builtin.set_fact:
-        free_memory_percentage: "{{ free_memory | int / total_memory | int * 100 }}"
-    
+    # Using the same approach, extract the free memory in percentage
+    - name: Using the variables generated previously, we want the code to compute the free memory in percentage   
 
 
     # TASK 5
-    - name: Print the value of all the memory variables
-      ansible.builtin.debug:
-        msg:
-          - 'Free memory: {{ free_memory }} MB'
-          - 'Used memory: {{ used_memory }} MB'
-          - 'Total memory: {{ total_memory }} MB'
-          - 'Percentage used memory: {{ percentage_used_memory }}%'
-          - 'Free memory percentage: {{ free_memory_percentage }}%'
+    # See how changing the prompt may be necessary to include all the variables in the message.
+    # Add: and the computed percentage on the second generation
+    - name: Print the value of all the memory variables 
+
+    
+
+
+
     
     
     

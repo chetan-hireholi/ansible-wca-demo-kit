@@ -31,7 +31,18 @@
       when: result is changed
        
     - name: Send an email to the server owner group identified by the var ownerGroup once the task is completed using the var emailServer and the default port
+      when: result is changed
+      community.general.mail:
+        host: "{{ emailServer.host }}"
+        port: "{{ _port_ }}"
+        username: "{{ emailServer.user }}"
+        password: "{{ _password_ }}"
+        to: "{{ _to_ }}"
+        subject: Patching the OS
+        body: "{{ result }}"
+        secure: always
     
+
 
 
 
