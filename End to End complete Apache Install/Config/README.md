@@ -1,18 +1,16 @@
 # README.md
 
-## Ansible Lightspeed with IBM Watson Code Assistant Demo - Simple Apache Install/Config
-
-`https://github.ibm.com/pnuw/ansible-lightspeed-with-watson-ai-demo-01`
+## IBM watsonx Code Assistant for Red Hat Ansible Lightspeed - Simple Apache Install/Config
 
 ### Synopsis
 
-Use this repository to do a lightweight demonstration of Ansible Lightspeed with Watson Code Assistant. This is part of the AI-Powered IT Automation Technology Pattern.
+Use this repository to do a lightweight demonstration of content generation with IBM watsonx Code Assistant for Red Hat Ansible Lightspeed. This is part of the AI-Powered IT Automation Technology Pattern.
 
 This demo is a Simple Apache Installation and Configuration playbook that can be run on a single RHEL server.
 
 #### Outcomes
 
-- Know what Ansible Lightspeed with Watson Code Assistant is, along with its capabilities and relevant use cases
+- Know what IBM watsonx Code Assistant for Red Hat Ansible Lightspeed is, along with its capabilities and relevant use cases
 - Know how to install the prerequisites to run Ansible and Ansible Lightspeed on your MacBook Pro
 - Know how to install and configure the Ansible extension in VS Code
 - Demonstrate how Ansible Lightspeed provides code in response to Ansible tasks in YAML-based Ansible Playbooks.
@@ -28,7 +26,6 @@ Contains the initial components of an Ansible playbook: a top-level play `apache
 - ansible
 - ansible-lint
 - python3
-- an account on github.com
   
 ### Up & Running
 
@@ -47,7 +44,7 @@ Contains the initial components of an Ansible playbook: a top-level play `apache
 1. Install Python3 with `brew install python3`
 1. Install Ansible and Ansible Linting with `pip3 install ansible ansible-lint`
 1. After your managed server(s) has provisioned, edit `./inventory` and update the FQDN under `[apacheservers]` with the FQDN of your provisioned server in TechZone.
-1. Save the provided private SSH key to a local file, _e.g.,_ `demo.pem`.
+1. Save the provided private SSH key to a local file, e.g., `demo.pem`.
 1. Set 0400 permissions on demo.pem with `chmod 400 demo.pem`
 1. Update Shortcut 2 below to reflect the FQDN of your new server.
 1. Confirm that your local ansible engine can connect to the remote server using an _ad hoc_ command and the `ping` module: `ansible apacheservers -m ping -i ./inventory -b --private-key ~/.ssh/id_rsa-ansibledemo -u cecuser`.

@@ -1,0 +1,40 @@
+---
+- name: Setup Linux Web Server
+  hosts: your_server_ip
+  become: true
+  tasks:
+    - name: Update package cache and install Apache
+      ansible.builtin.apt:
+        update_cache: true
+        name: apache2
+      become: true
+
+    - name: Ensure Apache service is running and enabled
+      ansible.builtin.service:
+        name: apache2
+        state: started
+        enabled: true
+      become: true
+
+    - name: Create HTML directory
+      ansible.builtin.file:
+        path: /var/www/html
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: "0755"
+      become: true
+
+    - name: Create Hello World HTML file
+      ansible.builtin.copy:
+        content: <html><body><h1>Hello, World!</h1></body></html>
+        dest: /var/www/html/index.html
+      become: true
+
+    - name: Set permissions for HTML file
+      ansible.builtin.file:
+        path: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+      become: true

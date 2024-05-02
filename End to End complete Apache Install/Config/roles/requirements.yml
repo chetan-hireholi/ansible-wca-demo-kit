@@ -3,5 +3,5 @@
 # install with ansible-galaxy -r roles/requirements.txt
 
 collections:
-- ansible.posix
-- community.general
+  - ansible.posix
+  - community.general

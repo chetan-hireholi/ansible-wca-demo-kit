@@ -1,0 +1,42 @@
+---
+- name: EC2 Cloud Operations
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  # module_defaults:
+  #   group/aws:
+  #     region: us-east-1
+
+  # vars:
+  #   ec2_instance:
+  #     instName: lightspeed-instance-01
+  #     key_name: lightspeed-keypair
+  #     image_id: ami-016eb5d644c333ccb # RHEL 9 us-east-1
+  #     tags:
+  #       function: lightspeed-demo
+  #     security_group: secgroup-lightspeed
+
+  tasks:
+        # TASK 1
+        # # 1a. Uncomment task description below and generate a task suggestion.
+        # #     Note - Best practices: The suggestion used the Fully Qualified Collection name.
+        # #     Note - Context: Ansible Lightspeed used the Playbook name "EC2 Cloud Operations" to use the correct "amazon.aws.ec2_vpc_subnet_info" module.
+    # - name: Gather subnet info tag:Name subnet-lightspeed
+
+        # TASK 2
+        # # 2a. Uncomment task description below and generate a task suggestion.
+        # #     Note - Context: The suggestion included the previous task's registered variable in the suggestion.
+        # #     Note - Accuracy: The suggestion provides the correct key value from the previously task's registered variable.
+    # - name: Create vpc_subnet_id var
+
+        # TASK 3
+        # # 3a. Uncomment task description "Provision t3.micro instance" below and generate a task suggestion.
+        # #     Note - Efficiency: The suggestion provides practical variable examples to improve efficiency.
+    # - name: Provision t3.micro instance
+
+        # # 3b. Remove the above task and suggestion.
+        # #     Uncomment 2nd task description "Provision t3.micro instance using ec2_instance var".
+        # #     Generate an updated suggestion.
+        # #     Note - Context: The updated suggestion includes the "ec2_instance variable fields in the suggestion"
+    # - name: Provision t3.micro instance using ec2_instance var
