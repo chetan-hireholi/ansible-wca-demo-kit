@@ -1,0 +1,77 @@
+- name: Create a host report
+  hosts: myhosts
+
+  tasks:
+
+    # TASK 1: Get some OS related information with a single multi task prompt
+
+
+    # Extract the Linux OS type & Extract the OS version & Extract the uptime and store the information in variables
+    - name: Extract the linux os type
+      ansible.builtin.command: uname -s
+      register: os_type
+
+    - name: Extract the os version
+      ansible.builtin.command: uname -r
+      register: os_version
+
+    - name: Extract the uptime and store the information in variables
+      ansible.builtin.command: uptime
+      register: uptime
+    
+   
+    
+    # TASK 2: Get the OS distribution with a specific task added after the previous ones
+    - name: Extract the OS distribution in a variable from the Ansible facts
+      ansible.builtin.set_fact:
+        os_distribution: "{{ ansible_facts['distribution'] }}"
+    
+    
+
+    # TASK 3: Print out a report in the console with the variables that were set previously    
+    - name: Print out a report using the variables that were extracted
+      ansible.builtin.debug:
+        msg:
+          - 'OS Type: {{ os_type.stdout }}'
+          - 'OS Version: {{ os_version.stdout }}'
+          - 'OS Distribution: {{ os_distribution }}'
+          - 'Uptime: {{ uptime.stdout }}'
+    
+    
+    
+    # TASK 4: Create a directory on the remote host to store a report
+    - name: Create a directory under /tmp with the connected user name
+      ansible.builtin.file:
+        path: /tmp/{{ ansible_user_id }}
+        state: directory
+        mode: '0755'
+    
+
+
+    # TASK 5: Print the report in a JSON file that will be stored temporarily the on the remote host
+    #         Note that ansible_facts may be added and can be removed
+    - name: Print out a report using the variables that were extracted in JSON format in a file called my_host.json saved in the created directory
+      ansible.builtin.copy:
+        content: |
+          {
+            "os_type": "{{ os_type.stdout }}",
+            "os_version": "{{ os_version.stdout }}",
+            "os_distribution": "{{ os_distribution }}",
+            "uptime": "{{ uptime.stdout }}",
+            "user_name": "{{ ansible_user_id }}",
+            "ansible_facts": "{{ ansible_facts }}"
+          }
+        dest: /tmp/{{ ansible_user_id }}/my_host.json
+        mode: '0755'
+    
+       
+
+    # TASK 6a: Grab the remote file and bring it on the station that is executing the playbook. We use the built-in
+    #         capability of the fetch module to organize the files in directories
+    - name: Fetch the generated file on the remote server to my localhost to directory /tmp/hosts/ not using flat mode
+      ansible.builtin.fetch:
+        src: /tmp/{{ ansible_user_id }}/my_host.json
+        dest: /tmp/hosts/
+        flat: false
+    
+    
