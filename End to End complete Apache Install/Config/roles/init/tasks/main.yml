@@ -1,0 +1,32 @@
+---
+# initialize local RHEL9 VM
+# assumptions:
+# - you already built a RHEL9 VM 
+# - you already have a non-root user with passwordless sudo rights
+# - you have copied your ssh key for the non-root user over and can login without a password
+#
+# MacOS UTM users should install spice-vdagent.aarch64 to share clipboards 
+
+- name: Install some packages
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - git
+    - vim
+    - wget
+    - curl
+    - unzip
+    - bzip2
+    - gzip
+    - tar
+    - python-pip
+    - python-setuptools
+    # - spice-vdagent.aarch64
+
+- name: Set SELinux to Permissive
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.posix.selinux:
+    policy: targeted
+    state: permissive
