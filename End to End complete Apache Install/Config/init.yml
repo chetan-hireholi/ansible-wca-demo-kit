@@ -1,0 +1,7 @@
+---
+- name: Initialize Demo Environment
+  hosts: apacheservers
+  remote_user: pnuw
+  become: true
+  roles:
+    - init
