@@ -2,3 +2,5 @@
 # - name: Create /var/log/httpd directory owned by root:root with 0750 permissions
 
 # - name: Create httpd.conf from a template and save as /etc/httpd/conf/httpd.conf
+
+# - name: Start httpd

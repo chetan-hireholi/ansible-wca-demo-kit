@@ -1,8 +1,10 @@
 ---
-# - name: Create /ibmdata/htdocs directory
+# - name: Create /ibmdata/htdocs directory root:root
 
 # - name: Install httpd
 
-# - name: Configure apache seport to listen on tcp 8080 and 8443
+# - name: Configure seport to listen on tcp 8080 and 8443 using community.general.seport
 
 # - name: Enable httpd to start at boot
+
+# - name: Open firewall ports 8080 & 8443
