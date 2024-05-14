@@ -70,7 +70,7 @@ This comment line now acts as a prompt to the watsonx Code Assistant.
 
 ## FAQ
 
-1. Who are the main audience for this demo setup? _ONLY IBM INTERNAL. IBM Sellers & IBM Client Engineering teams. To provision a VM go to: https://techzone.ibm.com/collection/watsonx-code-assistant/journey-code-assistant-for-ansible-lightspeed_
+1. Who are the main audience for this demo setup? _ONLY IBM INTERNAL. IBM Sellers & IBM Client Engineering teams. To provision a VM go to: _https://techzone.ibm.com/collection/ibm-watson-x-code-assistant-for-ansible-lightspeed/environments_ and select "WCA for Ansible Essentials Plan: Visual Studio Desktop 1.3"
 2. What is the purpose of this demo setup? _This technical content can help you get acquainted with watsonx Code Assistant's features and provide you an opportunity for a live demo to clients_
 3. Even after logging into the VM, it asks me to re-authenticate. Which credentials to provide? _The same credentials you input to connect to the VM_
 
