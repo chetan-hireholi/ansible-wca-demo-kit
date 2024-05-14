@@ -4,30 +4,40 @@
   tasks:
 
     # TASK 1: Get some OS related information with a single multi task prompt
-
+    # # Uncomment the line below and have Lightspeed generate the task
+    #
     # Extract the Linux OS type & Extract the OS version & Extract the uptime and store the information in variables
+
     
     # TASK 2: Get the OS distribution with a specific task added after the previous ones
-    - name: Extract the OS distribution in a variable from the Ansible facts
-    
-    
+    # - name: Extract the OS distribution in a variable from the Ansible facts
 
     # TASK 3: Print out a report in the console with the variables that were set previously    
-    - name: Print out a report using the variables that were extracted
-    
-    
+    # - name: Print out a report using the variables that were extracted
     
     # TASK 4: Create a directory on the remote host to store a report
-    - name: Create a directory under /tmp with the connected user name
+    # - name: Create a directory under /tmp with the connected user name
 
 
     # TASK 5: Print the report in a JSON file that will be stored temporarily the on the remote host
-    #         Note that ansible_facts may be added and can be removed
-    - name: Print out a report using the variables that were extracted in JSON format in a file called my_host.json saved in the created directory
-       
+    #         Note that ansible_facts may be added by Lightspeed and can be manuallt removed. The generated code is only a suggestion and it is
+    #         totally ok to adjust it without changing the Prompt.
+    # - name: Print out a report using the variables that were extracted in JSON format in a file called my_host.json saved in the created directory
+
 
     # TASK 6a: Grab the remote file and bring it on the station that is executing the playbook. We use the built-in
-    #         capability of the fetch module to organize the files in directories
-    - name: Fetch the generated file on the remote server to my localhost to directory /tmp/hosts/ not using flat mode
-    
+    #         capability of the fetch module to organize the files in directories. 
+    # # Note here that flat = true will be used since the filename will be the same for each host, to prevent overwrite
+    # - name: Fetch the generated file on the remote server to my localhost to directory /tmp/hosts/ 
+
+
+    # TASK 6b: Grab the remote files and bring it on the station that is executing the playbook. We use the built-in module for this but this time
+    #          we will rename the files and put them all in the same directory.
+    #  # Comment the task 6a and the generated code. Un-comment the line below and look at the code differences  
+    # - name: Fetch the generated file on the remote server to my localhost and change the destination name to remote-[hostname] replacing the source filename
+
+
+
+
+
     
