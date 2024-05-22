@@ -101,7 +101,7 @@ Shortcuts:
 
 ### References
 
-- [Pete's 24-minute Demo Video](https://ibm.box.com/s/a06e8ppy4wjmz8b5bmr0bd2ktgkcb4h4)
+- [Pete's 24-minute Demo Video][pete_demo_video]
 - [Ansible Lightspeed with Watson Code Assistant](https://docs.ai.ansible.redhat.com/)
 
 ### Authors
@@ -110,4 +110,4 @@ Shortcuts:
 - [Rubayat Khan](mailto:rubayat.khan@ibm.com)
 
 [Red_Hat_or_Suse_Linux_PowerVM_POWER10_LPAR]: https://techzone.ibm.com/collection/6261d3584670d7001e3d483a
-[pete_demo_video]: https://ibm.box.com/s/a06e8ppy4wjmz8b5bmr0bd2ktgkcb4h
+[pete_demo_video]: https://ibm.box.com/s/a06e8ppy4wjmz8b5bmr0bd2ktgkcb4h4
