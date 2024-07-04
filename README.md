@@ -33,11 +33,12 @@ With this VM demo you can test:
 
     ![](/Images/Example-read-me.png)
 
-<h3>Trying out examples</h3>
+<h2>Trying out examples</h2>
 
 We have uploaded few basic scenarios which gives you an idea on how watsonx Code Assistant can interpret the natural lanuguage in prompts and further by uncommenting and hitting `Enter`, you can get content suggestions. To accept the content suggested, hit `Tab`.
 
 ![](/Images/Example-uncomment.png)
+
 
 <h3>Testing Single-task and Mutli-task Playbook content generation</h3>
 
@@ -45,7 +46,8 @@ We have uploaded few basic scenarios which gives you an idea on how watsonx Code
 
 In your Playbook writing experience, you usally tend to write it in a step-by-step approach. You write the single-tasks one after the other. 
 <!-- <img title="Example list" src="/Images/AWS-single-task-traditional.png"> -->
-![](/Images/AWS-single-task-traditional.png)
+<!-- ![](/Images/AWS-single-task-traditional.png) -->
+<img src="./Images/AWS-single-task-traditional.png" alt="image" width="550" height="150">
 
 <h4>Speed up Playbook writing with Single-task & Multi-task content generation</h4>
 
@@ -54,12 +56,13 @@ In your Playbook writing experience, you usally tend to write it in a step-by-st
 - In the below example we show single-task prompt and the recommendation by watsonx Code Assistant:
 <!-- <img title="AWS example" src="/Images/AWS-single-task.png"> -->
 <!-- ![](/Images/AWS-single-task.png) -->
-<img src="./Images/AWS-single-task.png" alt="image" width="400" height="300">
+<img src="./Images/AWS-single-task.png" alt="image" width="350" height="250">
 
 - Now, take it to the next level by giving all the IT Automation instructions/tasks together. Type in all the individual tasks below the `tasks` parameter by separating it with an `&`. You should comment the line in order for watsonx Code Assistant to interpret the prompt.
 - In the below example we show multi-task prompt and the recommendation by watsonx Code Assistant:
 <!-- <img title="AWS example" src="/Images/AWS-Multi-task-recommendation.png"> -->
-![](/Images/AWS-Multi-task-recommendation.png)
+<!-- ![](/Images/AWS-Multi-task-recommendation.png) -->
+<img src="./Images/AWS-Multi-task-recommendation.png" alt="image" width="700" height="300">
 
 This comment line now acts as a prompt to the watsonx Code Assistant.
 
