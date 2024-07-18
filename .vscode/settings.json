@@ -4,5 +4,7 @@
         "*.yml": "ansible",
         "*.yaml": "ansible"
     },
+    "ansible.lightspeed.enabled": true,
+    "ansible.lightspeed.suggestions.enabled": true,
     "ansible.validation.lint.enabled": false
 }
