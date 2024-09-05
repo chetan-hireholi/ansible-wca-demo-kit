@@ -4,27 +4,3 @@
 
   tasks:
     - name: Create an OpenShift cluster
-
-
-    # Before tuning
-    # - name: Create an OpenShift cluster
-    #   ansible.builtin.command: oadm create-cluster --wait=false --name=openshift-cluster
-    #   register: oadm_create_cluster
-    #   changed_when: "'created' in oadm_create_cluster.stdout"
-    #   failed_when: "'already exists' not in oadm_create_cluster.stdout"
-
-    
-    # After tuning
-    # - name: Create an OpenShift cluster
-    #   register: cluster_create_output
-    #   when: cluster_output.rc != 0
-    #   ibm.cloudcollection.ibm_container_cluster:
-    #     name: test_cluster
-    #     datacenter: "{{ datacenter }}"
-    #     machine_type: "{{ machine_type }}"
-    #     hardware: "{{ hardware }}"
-    #     kube_version: 4.14_openshift
-    #     public_vlan_id: "{{ public_vlan_id }}"
-    #     private_vlan_id: "{{ private_vlan_id }}"
-    #     default_pool_size: "{{ default_worker_pool_size }}"
-    #     entitlement: "{{ entitlement }}"
