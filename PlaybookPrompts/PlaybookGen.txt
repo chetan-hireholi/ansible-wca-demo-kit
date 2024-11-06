@@ -1,0 +1,11 @@
+
+# Works ok
+Create IIS websites on port 8080 and 8081 and open firewall
+
+# Let's add a new port opened as a firewall rule in as we deploy IIS
+# Note that this prompt is not precise enough and will not configure firewall correctly
+Create IIS websites on port 8080 and 8081 and open firewall. Also add a firewall rule to allow HTTP traffic on port 8082 too
+
+# This prompt gives enough details to the model so that IIS and its ports are properly configure but also the supplemental port
+Create IIS websites on port 8080 and 8081 and open firewall for IIS. Also add a firewall rule to allow HTTP traffic on port 8082 too
+
