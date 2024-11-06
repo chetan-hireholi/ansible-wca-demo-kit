@@ -1,0 +1,76 @@
+---
+
+- name: Prepare a Linux box with a user, member of a group and group part of the sudoers
+
+  collections:
+    - sudoers
+
+  vars:
+    userName: egiguere
+    groupName: wheel
+
+  tasks:
+    - name: Add the user as part of the Linux OS users. Use the variable userName and groupName. Create home directory
+      ansible.builtin.user:
+        name: "{{ userName }}"
+        shell: /bin/bash
+        groups: "{{ groupName }}"
+        append: true
+        createhome: true
+        state: present
+      
+    - name: Edit sudoers for groupName using sudoers module. Password is required. Set group to groupName
+      community.general.sudoers:
+        name: "{{ userName }}"
+        state: present
+        user: "{{ userName }}"
+        group: "{{ groupName }}"
+        commands: ALL
+        nopassword: "{{ _nopassword_ }}"
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+
+
+
+
+
+
+
+
+    
+#    - name: Allow group in the groupName var to have passwordless sudo using community.general.sudoers module
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

@@ -1,0 +1,49 @@
+---
+- name: OS Management tasks
+
+  vars:
+    hostName: localhost
+
+  tasks:
+
+    # TASK 1
+    # This prompt will generate something close to what we want but not exactly. But it is pointing us 
+    # to the right section in the ansible facts.
+    # https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
+    # 
+    # - name: Using the Ansible Facts, extract memory values and create variables with the values real free, real used and real total
+
+
+
+    # TASK 2
+    # This prompt contains enough details to have a consice and exact code block
+    #
+    - name: From the Ansible facts ansible_memory_mb.real, create variables with the free, used and total memory in mb
+    
+    
+    # TASK 3
+    # Using the variables generated previsously, we want the code to compute used memory in percentage
+    # Show that the engine may not be aware that we are dealing with strings   
+    #   second prompt: Convert variables to int and compute the percentage value of the used memory
+    - name: Compute the percentage value of the used memory
+    
+
+    # TASK 4
+    # Using the same approach, extract the free memory in percentage
+    - name: Using the variables generated previously, we want the code to compute the free memory in percentage   
+
+
+    # TASK 5
+    # See how changing the prompt may be necessary to include all the variables in the message.
+    # Add: and the computed percentage on the second generation
+    - name: Print the value of all the memory variables 
+
+    
+
+
+
+    
+    
+    
+    
+

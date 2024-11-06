@@ -1,0 +1,44 @@
+- name: Create a host report
+  hosts: myhosts
+
+  tasks:
+
+    # TASK 1: Get some OS related information with a single multi task prompt
+
+
+    # Extract the Linux OS type & Extract the OS version & Extract the uptime and store the information in variables
+    
+    # TASK 2: Get the OS distribution with a specific task added after the previous ones
+    - name: Extract the OS distribution in a variable from the Ansible facts
+    
+
+    # TASK 3: Print out a report in the console with the variables that were set previously    
+    - name: Print out a report using the variables that were extracted
+    
+    # TASK 4: Create a directory on the remote host to store a report
+    - name: Create a directory under /tmp with the connected user name
+
+    # TASK 5: Print the report in a JSON file that will be stored temporarily the on the remote host
+    #         Note that ansible_facts may be added and can be removed
+    - name: Print out a report using the variables that were extracted in JSON format in a file called my_host.json saved in the created directory
+   
+
+    # TASK 6a: Grab the remote file and bring it on the station that is executing the playbook. We use the built-in
+    #         capability of the fetch module to organize the files in directories
+    - name: Fetch the generated file on the remote server to my localhost to directory /tmp/hosts/ not using flat mode
+    
+    
+    
+    # TASK 6b: Grab the remote files but this time use a flat structure with different file names instead
+    - name: Fetch the generated file on the remote server to my localhost and change the destination name to /tmp/hosts/remote-[hostname] replacing the source filename
+    
+
+  
+
+    
+
+    
+
+
+
+  
