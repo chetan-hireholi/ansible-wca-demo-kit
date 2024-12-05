@@ -1,5 +1,9 @@
----
-- name: Provision an EC2 instance
-  hosts: all
-  tasks:
+# DO NOT USE THIS PLAYBOOK.
+# IT THROWS ERROR.
+# WE ARE CURRENTLY INVESTIGATING.
+
+# ---
+# - name: Provision an EC2 instance
+#   hosts: all
+#   tasks:
     # create vpc named demo & create security group for demo vpc and allow ssh and http & create internet gateway named demogateway for demo vpc & create subnet named demosubnet in demo vpc & create route table for subnet demosubnet and gateway demogateway & create t2.small ec2 instance in subnet demosubnet
